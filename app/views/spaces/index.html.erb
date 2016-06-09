@@ -4,7 +4,7 @@
         <p class="lead">Distrito</p>
         <div class="list-group">
           <% @districts.each do |district| %>
-            <%= link_to district.name, search_page_path(district_id: district.id), :class => "list-group-item" %>
+            <%= link_to district.name, spaces_path(district_id: district.id), :class => "list-group-item" %>
           <% end %>
         </div>
     </div>

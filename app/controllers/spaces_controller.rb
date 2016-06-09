@@ -13,7 +13,6 @@ class SpacesController < ApplicationController
   end
 
 
-
   # GET /spaces/1
   # GET /spaces/1.json
   def show
