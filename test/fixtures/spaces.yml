@@ -1,0 +1,31 @@
+# == Schema Information
+#
+# Table name: spaces
+#
+#  id                   :integer          not null, primary key
+#  description          :text(65535)
+#  address              :string(255)
+#  district_id          :integer
+#  price                :float(24)
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  name                 :string(255)
+#  content_file_name    :string(255)
+#  content_content_type :string(255)
+#  content_file_size    :integer
+#  content_updated_at   :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  address: MyString
+  district_id: 
+  price: 1.5
+
+two:
+  description: MyText
+  address: MyString
+  district_id: 
+  price: 1.5

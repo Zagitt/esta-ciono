@@ -1,0 +1,7 @@
+<%= simple_form_for(@reservation) do |f| %>
+  <%= f.input :user_id, as: :hidden %>
+  <%= f.input :space_id, as: :hidden %>
+  <%= f.input :reservation_date, as: :date %> 
+  <%= f.button :submit, class: 'btn btn-success' %>
+  
+<% end %>  
