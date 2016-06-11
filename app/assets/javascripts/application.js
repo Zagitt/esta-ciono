@@ -19,4 +19,6 @@
 //= require twitter/bootstrap/button
 //= require twitter/bootstrap/collapse
 //= require turbolinks
+//= require underscore
+//= require gmaps/google
 //= require_tree .

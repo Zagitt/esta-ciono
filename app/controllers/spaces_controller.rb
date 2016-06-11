@@ -10,8 +10,15 @@ class SpacesController < ApplicationController
     else
       @spaces = Space.where(district_id: params[:district_id])
     end
+    @hash = Gmaps4rails.build_markers(@spaces) do |space, marker|
+      marker.lat space.latitude
+      marker.lng space.longitude
+      marker.infowindow space.name
+    end
+    
+    
   end
-
+    
 
   # GET /spaces/1
   # GET /spaces/1.json

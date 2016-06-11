@@ -14,6 +14,8 @@
 #  content_content_type :string(255)
 #  content_file_size    :integer
 #  content_updated_at   :datetime
+#  latitude             :float(24)
+#  longitude            :float(24)
 #
 
 class Space < ActiveRecord::Base
@@ -27,5 +29,8 @@ class Space < ActiveRecord::Base
     validates_attachment_content_type :content, 
                          content_type: /\Aimage\/.*\Z/  
     
+  geocoded_by :address   # can also be an IP address
+  after_validation :geocode
+
 
 end

@@ -18,6 +18,9 @@ gem 'simple_form'
 gem 'bcrypt', '~> 3.1.7'
 gem 'annotate'
 gem "bootstrap_flash_messages", "~> 1.0.1"
+gem 'geocoder'
+gem 'gmaps4rails'
+
 
   gem 'byebug'
   

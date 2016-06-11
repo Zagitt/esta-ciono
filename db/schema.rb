@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602024844) do
+ActiveRecord::Schema.define(version: 20160609215827) do
 
   create_table "districts", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 20160602024844) do
     t.string   "content_content_type", limit: 255
     t.integer  "content_file_size",    limit: 4
     t.datetime "content_updated_at"
+    t.float    "latitude",             limit: 24
+    t.float    "longitude",            limit: 24
   end
 
   add_index "spaces", ["district_id"], name: "index_spaces_on_district_id", using: :btree
