@@ -38,7 +38,8 @@ class SpacesController < ApplicationController
   # POST /spaces.json
   def create
     @space = Space.new(space_params)
-
+    @space.profile = current_user.default_profile
+    
     respond_to do |format|
       if @space.save
         format.html { redirect_to @space, notice: 'Space was successfully created.' }

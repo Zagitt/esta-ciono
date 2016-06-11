@@ -16,6 +16,7 @@
 #  content_updated_at   :datetime
 #  latitude             :float(24)
 #  longitude            :float(24)
+#  profile_id           :integer
 #
 
 require 'test_helper'

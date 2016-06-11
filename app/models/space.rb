@@ -16,10 +16,12 @@
 #  content_updated_at   :datetime
 #  latitude             :float(24)
 #  longitude            :float(24)
+#  profile_id           :integer
 #
 
 class Space < ActiveRecord::Base
   belongs_to :district
+  belongs_to :profile
   has_many :reservations
   
   has_attached_file :content, 

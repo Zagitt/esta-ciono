@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609215827) do
+ActiveRecord::Schema.define(version: 20160611172114) do
 
   create_table "districts", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -71,9 +71,11 @@ ActiveRecord::Schema.define(version: 20160609215827) do
     t.datetime "content_updated_at"
     t.float    "latitude",             limit: 24
     t.float    "longitude",            limit: 24
+    t.integer  "profile_id",           limit: 4
   end
 
   add_index "spaces", ["district_id"], name: "index_spaces_on_district_id", using: :btree
+  add_index "spaces", ["profile_id"], name: "index_spaces_on_profile_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                                      null: false
@@ -100,4 +102,5 @@ ActiveRecord::Schema.define(version: 20160609215827) do
   add_foreign_key "reservations", "spaces"
   add_foreign_key "reservations", "users"
   add_foreign_key "spaces", "districts"
+  add_foreign_key "spaces", "profiles"
 end

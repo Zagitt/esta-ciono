@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @spaces = Space.where("profile_id=?",@profile.id) #Estacionamiento por usuario
   end
 
   # GET /profiles/new

@@ -24,15 +24,17 @@
         <% @spaces.each do |space| %>
           <div class="col-sm-6 col-lg-6 col-md-6">
               <div class="thumbnail">
+               <%= link_to space do %>
                 <%= image_tag space.content.url(:thumb) %>
                 <div class="caption">
                     <h4 class="pull-right">$<%= space.price %></h4>
                     <h4>
-                      <%= link_to space.name, space %>
+                      <%= space.name %>
                     </h4>
                     <p><%= space.description %></p>
                     <p><%= space.address %></p>
                 </div>
+               <% end %>
             </div>
           </div>
         <% end %>

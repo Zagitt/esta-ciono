@@ -1,6 +1,6 @@
   <% if current_user %>
 
-      <li>Hola <%= link_to current_user.friendly_name, edit_profile_path(current_user.default_profile) %></li>
+      <li><%= link_to current_user.friendly_name, current_user.default_profile %></li>
 
       <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
 

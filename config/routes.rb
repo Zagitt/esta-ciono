@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :reservations
   resources :events
-  resources :profiles, only: [:edit, :update]
+  resources :profiles
   devise_for :users
   resources :spaces
   resources :districts
@@ -20,8 +20,6 @@ Rails.application.routes.draw do
   root to: 'pages#index', as: :authenticated_root
   end
   root to: redirect('/users/sign_in')
-  
- 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
