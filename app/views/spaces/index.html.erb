@@ -1,68 +1,66 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <!-- Distrito -->
-        <p class="lead">Distritos</p>
-        <div class="list-group">
-          <% @districts.each do |district| %>
-            <%= link_to district.name, spaces_path(district_id: district.id), :class => "list-group-item" %>
-          <% end %>
-        </div>
-         <!-- Eventos -->
-        <p class="lead">Eventos</p>
-        <div class="list-group">
-          <% @districts.each do |district| %>
-            <%= link_to district.name, spaces_path(district_id: district.id), :class => "list-group-item" %>
-          <% end %>
-        </div>
-        
-        
-        
-    </div>
-    <div class="col-md-9">
-      <div class="row">
-        <% @spaces.each do |space| %>
-          <div class="col-sm-6 col-lg-6 col-md-6">
-              <div class="thumbnail">
-               <%= link_to space do %>
-                <%= image_tag space.content.url(:thumb) %>
-                <div class="caption">
-                    <h4 class="pull-right">$<%= space.price %></h4>
-                    <h4>
-                      <%= space.name %>
-                    </h4>
-                    <p><%= space.description %></p>
-                    <p><%= space.address %></p>
-                </div>
-               <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div> 
-  </div>
-</div>
+<!-- begin template -->
 
-<div class="container">
-  <div style='width: 800px; height: 400px'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
-  </div>
+<div id="map"></div>
+
+
 <script type="text/javascript">
   handler = Gmaps.build('Google');
-handler.buildMap({
-    provider: {
-      disableDefaultUI: true
-      // pass in other Google Maps API options here
+  handler.buildMap({
+      provider: {
+        disableDefaultUI: true
+          // pass in other Google Maps API options here
+      },
+      internal: {
+        id: 'map'
+      }
     },
-    internal: {
-      id: 'map'
+    function() {
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
     }
-  },
-  function(){
-    markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  }
-);
-  </script>
-</div>
+  );
+</script>
+<div class="container-fluid" id="main">
+
+  <div class="row">
+    <div class="col-xs-4" id="left">
+
+      <h2>Busque su Estacionamiento</h2>
+
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Escoja el Distrito
+        <span class="caret"></span>
+      </button>
+        <ul class="dropdown-menu">
+          <li>  
+              <%= link_to "Todos", spaces_path(@district) %>
+          </li>
+          <% @districts.each do |district| %>
+            <li>
+              <%= link_to district.name, spaces_path(district_id: district.id) %>
+            </li>
+            <% end %>
+        </ul>
+      </div>
+      <!-- item list -->
+      <hr>
+      <article>
+        <div class="panel panel-default">
+          <ul>
+          <% @spaces.each do |space| %>  
+            <li class="panel">
+              <%= link_to space do%>         
+                <h4> <%= space.name %> </h4>
+                <p> <%= space.description %> </p>
+                <p> <%= space.address %> </p>
+              <% end %>                
+            </li>                            
+          <% end %>
+          </ul>
+      </div>
+      </article>
+     
+  <!-- end template -->
+  

@@ -29,13 +29,14 @@ a {
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
+    text-decoration: none;
 }
 
-a:hover,
+/*a:hover,
 a:focus {
     color: #eb3812;
 }
-
+*/
 h1,
 h2,
 h3,
@@ -473,4 +474,15 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #222;
+}
+
+
+#map {
+	width:100%;
+    height:calc(100% - 0);
+    position:absolute;
+    right:16px;
+    top:50px;
+    bottom:0;
+    overflow:hidden;
 }
